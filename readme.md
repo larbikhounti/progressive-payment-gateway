@@ -3,8 +3,8 @@
 
 ## what's the code is missing ?
 
-- the  ``` pay(Card card)```  logic  because every payment gateway has its own logic
-- the  ```checkCardValidation(Card card)``` logic to check if the card is valid
+- the  ```java pay(Card card)```  logic  because every payment gateway has its own logic
+- the  ```java checkCardValidation(Card card)``` logic to check if the card is valid
 
 ## To add new payment gateway
 
