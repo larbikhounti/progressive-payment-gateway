@@ -3,8 +3,8 @@
 
 ## what's the code is missing ?
 
-- the  ```java pay(Card card)```  logic  because every payment gateway has its own logic
-- the  ```java checkCardValidation(Card card)``` logic to check if the card is valid
+- the  ```pay(Card card)```  logic  because every payment gateway has its own logic
+- the  ```checkCardValidation(Card card)``` logic to check if the card is valid
 
 ## To add new payment gateway
 
@@ -15,7 +15,7 @@ you will need to Override two methods ``` pay(Card card)``` and ```checkCardVali
 ## Building  a new card 
 
 Card is using Builder pattern so you have to Build it like this for example :
-``` 
+```java 
 Card card = new Card.CardBuilder()
                 .setCardNumber("5350239959461533")
                 .setSecurityNumber(369)
@@ -27,7 +27,7 @@ Card card = new Card.CardBuilder()
 ```
 then you need to pass the card to the ``` pay(Card card) ```  method and ```checkCardValidation(Card card)``` like this :
 
-```
+```java
 //create an instance of stripe
 Stripe stripe = new Stripe();
 
