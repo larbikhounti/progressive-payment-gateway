@@ -1,7 +1,6 @@
 package org.example.payment.interfaces;
 
 import org.example.payment.models.Card;
-import org.example.payment.paymentProcessors.Stripe;
 
 public interface paymentProcessor {
     /**
