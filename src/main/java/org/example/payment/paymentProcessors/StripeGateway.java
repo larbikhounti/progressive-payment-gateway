@@ -1,5 +1,6 @@
 package org.example.payment.paymentProcessors;
 
+import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
 import com.stripe.param.PaymentIntentCreateParams;
@@ -9,6 +10,12 @@ import org.example.payment.models.Card;
 
 public class StripeGateway implements paymentProcessor {
 
+
+
+    public StripeGateway() {
+        Stripe.apiKey = ConfigUtil.getProperty("STRIPE.SECRET");
+    }
+
     /**
      * pay method
      * @param card card
@@ -16,8 +23,6 @@ public class StripeGateway implements paymentProcessor {
      **/
     @Override
     public String pay(Card card) {
-        //TODO : ADD PAYMENT LOGIC AND RETURN THE REAL RESULTS
-        com.stripe.Stripe.apiKey = ConfigUtil.getProperty("STRIPE.SECRET");
         PaymentIntentCreateParams params =
                 PaymentIntentCreateParams.builder()
                         .setAmount(card.getAmount())
