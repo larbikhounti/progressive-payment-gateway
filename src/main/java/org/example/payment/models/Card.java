@@ -3,63 +3,86 @@ package org.example.payment.models;
 import org.example.payment.enums.CardIssuer;
 
 public class Card {
-    private final String cardNumber;
-    private final String expiryDate;
-    private final int securityNumber;
+    public final String cardNumber;
+    public final String expiryDate;
+    public final Integer securityNumber;
     private final String address;
     private final String name;
+    private final Long amount;
+    private  final CardIssuer cardIssuer;
 
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public String getExpiryDate() {
+        return expiryDate;
+    }
+
+    public Integer getSecurityNumber() {
+        return securityNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Long getAmount() {
+        return amount;
+    }
+
+    public CardIssuer getCardIssuer() {
+        return cardIssuer;
+    }
 
     public Card(CardBuilder cardBuilder) {
-        this.cardNumber = cardBuilder.getCardNumber();
-        this.expiryDate = cardBuilder.getExpiryDate();
-        this.securityNumber = cardBuilder.getSecurityNumber();
-        this.address = cardBuilder.getAddress();
-        this.name = cardBuilder.getName();
-        CardIssuer cardIssuer = cardBuilder.getCardIssuer();
+        this.cardNumber = cardBuilder.cardNumber;
+        this.expiryDate = cardBuilder.expiryDate;
+        this.securityNumber = cardBuilder.securityNumber;
+        this.address = cardBuilder.address;
+        this.name = cardBuilder.name;
+        this.amount = cardBuilder.amount;
+        this.cardIssuer = cardBuilder.cardIssuer;
     }
 
     public static class CardBuilder {
         private String cardNumber;
         private String expiryDate;
-        private int securityNumber;
+        private Integer securityNumber;
         private String address;
         private CardIssuer cardIssuer;
-        private  String name;
+        private String name;
+        private  Long amount;
 
-        public String getName() {
-            return name;
+
+
+        public CardBuilder setAmount(Long amount) {
+            this.amount = amount;
+            return this;
         }
+
 
         public CardBuilder setName(String name) {
             this.name = name;
             return this;
         }
 
-        public CardIssuer getCardIssuer() {
-            return cardIssuer;
-        }
+
 
         public CardBuilder setCardIssuer(CardIssuer cardIssuer) {
             this.cardIssuer = cardIssuer;
             return this;
         }
 
-        public String getCardNumber() {
-            return cardNumber;
-        }
 
-        public String getExpiryDate() {
-            return expiryDate;
-        }
 
-        public int getSecurityNumber() {
-            return securityNumber;
-        }
 
-        public String getAddress() {
-            return address;
-        }
+
+
 
         public CardBuilder setCardNumber(String cardNumber) {
             this.cardNumber = cardNumber;
@@ -89,9 +112,12 @@ public class Card {
         public String toString() {
             return "CardBuilder{" +
                     "cardNumber='" + cardNumber + '\'' +
-                    ", expiryDate=" + expiryDate +
+                    ", expiryDate='" + expiryDate + '\'' +
                     ", securityNumber=" + securityNumber +
                     ", address='" + address + '\'' +
+                    ", cardIssuer=" + cardIssuer +
+                    ", name='" + name + '\'' +
+                    ", amount=" + amount +
                     '}';
         }
     }
